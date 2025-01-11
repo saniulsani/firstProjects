@@ -1,0 +1,134 @@
+
+.table{
+    display: flex;
+    flex: 1;
+    height: 550px;
+}
+.one{
+    border: 3px solid black;
+    flex: 1;
+    /* display: flex; */
+    margin-right: 5px;
+    /* margin-left: 400px; */
+    /* background-color: rebeccapurple; */
+}
+.two{
+    /* border: 3px solid black; */
+    /* width: 100px; */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 2px;
+    margin-left: 2px;
+}
+.three{
+    border: 3px solid black;
+    flex: 1;
+    display: flex;
+    /* margin-right: 200px; */
+    /* background-color: yellowgreen; */
+}
+
+.second1{
+    border: 3px solid black;
+    flex: 1;
+    /* background-color: red; */
+    margin-bottom: 5px;
+}
+.second2{
+    border: 3px solid black;
+    flex: 1;
+    /* background-color: green; */
+    margin-bottom: 5px;
+}
+.second3{
+    /* border: 3px solid black; */
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    /* background-color: teal; */
+    margin-bottom: 5px;
+}
+.second4{
+    border: 3px solid black;
+    flex: 1;
+    background-color:hotpink;
+}
+.second3One{
+    border: 3px solid black;
+    margin-right: 5px;
+    flex: 1;
+    /* background-color: blue; */
+}
+.second3Two{
+    margin-right: 5px;
+    border: 3px solid black;
+    flex: 1;
+    /* background-color: red; */
+}
+.second3Three{
+    border: 3px solid black;
+    flex: 1;
+    /* background-color: yellow; */
+}
+.lastOne {
+    margin-top: 5px;
+    justify-self: center;
+    width: 60%;
+    display: flex;
+    flex: 1;
+    height: 400px;
+    flex-wrap: wrap; 
+}
+
+/* Child divs within .lastOne */
+.lastOne1,
+.lastOne2 {
+    flex: 1; /* Adjust width dynamically */
+    margin: 5px; /* Add some spacing */
+    border: 3px solid black;
+}
+
+
+
+/* Specific styling for form elements within .lastOne2 */
+.lastOne2 form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Full width of the page */
+    /* margin-bottom: 10px; */
+}
+
+/* Image Styles */
+.image1 {
+    margin-bottom: 10px;
+    width: 30%; 
+    height: auto; 
+    border: 2px solid #ccc; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+.left,.right{
+    width: 20%;
+    background-color: aqua;
+}
+.dateT{
+    margin-top: 3px;
+    display: flex;
+}
+.token{
+    margin-top: 3px;
+}
+
+/* database */
+.bookCon{
+    align-items: center;
+}
