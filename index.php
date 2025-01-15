@@ -89,16 +89,16 @@
                 <form action="connect_database.php" method="POST">
                     <div class="bookCon">
                         <span>Isbn:</span>
-                        <input type="text" name="isbn" placeholder="Isbn">
+                        <input type="text" name="isbn" placeholder="Isbn" required>
                         <span>bookTitle</span>
-                        <input type="text" name="bookTitle" placeholder="booktitle">
+                        <input type="text" name="bookTitle" placeholder="booktitle" required>
                         <span>bookName</span>
-                        <input type="text" name="bookName" placeholder="bookName">
+                        <input type="text" name="bookName" placeholder="bookName" required>
                         
                         <span>quantity</span>
-                        <input type="text" name="quantity" placeholder="quantity">
+                        <input type="text" name="quantity" placeholder="quantity" required>
                         <span>fiction</span>
-                        <input type="text" name="fiction" placeholder="fiction">
+                        <input type="text" name="fiction" placeholder="fiction" required>
                         <!-- <button type="button" name="update" id="update" style="margin-inline:35%">update</button> -->
                         <input type="submit" name="update" id="update" style="margin-inline:35%">
                     </div>
@@ -119,17 +119,17 @@
                 <form action="connect_database.php" method="POST">
                     <div class="bookCon">
                         <span>Isbn:</span>
-                        <input type="text" name="isbn" placeholder="Isbn">
+                        <input type="text" name="isbn" placeholder="Isbn" required>
                         <span>bookTitle</span>
-                        <input type="text" name="bookTitle" placeholder="booktitle">
+                        <input type="text" name="bookTitle" placeholder="booktitle" required>
                         <span>bookName</span>
-                        <input type="text" name="bookName" placeholder="bookName">
+                        <input type="text" name="bookName" placeholder="bookName" required>
                         
                         <span>quantity</span>
-                        <input type="text" name="quantity" placeholder="quantity">
+                        <input type="text" name="quantity" placeholder="quantity" required>
                         <span>fiction</span>
                         <input type="text" name="fiction" placeholder="fiction">
-                        <input type="submit" name="submit" id="submit" style="margin-inline:35%">
+                        <input type="submit" name="submit" id="submit" style="margin-inline:35%" required>
                     </div>
                 </form>
                 
