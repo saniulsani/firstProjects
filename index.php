@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="ss.css">
+    <link rel="stylesheet" href="mainOne.css">
     <!-- <div class="left">management</div> -->
     <!-- <div class="middle"></div>
     <div class="right"></div> -->
@@ -10,31 +10,125 @@
     </div>
     
     <div class="table">
-        <div class="left">
-            <!-- <h1>HeadOne</h1><br> -->
-            <!-- <h1>HeadOne</h1><br> -->
+         <div class="left">
+            <h3>Used Tokens:</h3>
+            <?php
+            // Fetch the JSON data from the token.json file
+            $jsonFile = 'token.json';  
+            $jsonData = file_get_contents($jsonFile); 
+            $data = json_decode($jsonData, true); 
+            
+            // Check if 'used_tokens' is available and is an array
+            if (isset($data['used_tokens']) && is_array($data['used_tokens'])) {
+                $count = 1;
+                foreach ($data['used_tokens'] as $token) {
+                    echo "<li>Token $count: $token</li>";  
+                    $count++;
+                }
+            } else {
+                echo "<li>No used tokens found.</li>"; 
+            }
+            ?>
         </div>
         <div class="two">
-            <div class="second1"></div>
-            <div class="second2"></div>
-            <div class="second3">
-                <div class="second3One"></div>
-                <div class="second3Two"></div>
-                <div class="second3Three"></div>
+        <div class="second1">
+            <h3>Borrowed Books List:</h3>
+            <table border="1" cellpadding="10" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ISBN</th>
+                        <th>Book Title</th>
+                        <th>Book Name</th>
+                        <th>Quantity</th>
+                        <th>Fiction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Database connection
+                    $host = 'localhost'; // Change this to your database host
+                    $username = 'root'; // Change this to your database username
+                    $password = ''; // Change this to your database password
+                    $database = 'test'; // Change this to your database name
+
+                    // Connect to the database
+                    $conn = new mysqli($host, $username, $password, $database);
+
+                    // Check connection
+                    if ($conn->connect_error) {
+                        die("Connection failed: " . $conn->connect_error);
+                    }
+
+                    // Fetch data from the table (replace 'borrowed_books' with your table name)
+                    $sql = "SELECT isbn, BookTitle, bookNames, Quantity, fiction FROM borrow_book";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        // Output data of each row
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>";
+                            echo "<td>" . htmlspecialchars($row['isbn']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['BookTitle']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['bookNames']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['Quantity']) . "</td>";
+                            echo "<td>" . htmlspecialchars($row['fiction']) . "</td>";
+                            echo "</tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='5'>No data found</td></tr>";
+                    }
+
+                    // Close the database connection
+                    $conn->close();
+                    ?>
+                </tbody>
+            </table>
+        </div>
+
+            <div class="second2">
+                <form action="connect_database.php" method="POST">
+                    <div class="bookCon">
+                        <span>Isbn:</span>
+                        <input type="text" name="isbn" placeholder="Isbn">
+                        <span>bookTitle</span>
+                        <input type="text" name="bookTitle" placeholder="booktitle">
+                        <span>bookName</span>
+                        <input type="text" name="bookName" placeholder="bookName">
+                        
+                        <span>quantity</span>
+                        <input type="text" name="quantity" placeholder="quantity">
+                        <span>fiction</span>
+                        <input type="text" name="fiction" placeholder="fiction">
+                        <!-- <button type="button" name="update" id="update" style="margin-inline:35%">update</button> -->
+                        <input type="submit" name="update" id="update" style="margin-inline:35%">
+                    </div>
+                </form>
+            </div>
+            <div class="second3" height="30%">
+                <div class="second3One">
+                    <img src="image/one.jpg" alt="Image 1" width="100%" height="30%">
+                </div>
+                <div class="second3Two">
+                    <img src="image/two.jpg" alt="Image 2" width="100%" height="30%">
+                </div>
+                <div class="second3Three">
+                    <img src="image/three.jpg" alt="Image 3" width="100%" height="30%">
+                </div>
             </div>
             <div class="second4">
                 <form action="connect_database.php" method="POST">
                     <div class="bookCon">
                         <span>Isbn:</span>
                         <input type="text" name="isbn" placeholder="Isbn">
-                        <span>bookName</span>
-                        <input type="text" name="bookName" placeholder="bookName">
                         <span>bookTitle</span>
                         <input type="text" name="bookTitle" placeholder="booktitle">
+                        <span>bookName</span>
+                        <input type="text" name="bookName" placeholder="bookName">
+                        
                         <span>quantity</span>
                         <input type="text" name="quantity" placeholder="quantity">
                         <span>fiction</span>
-                        <input type="text" placeholder="fiction">
+                        <input type="text" name="fiction" placeholder="fiction">
                         <input type="submit" name="submit" id="submit" style="margin-inline:35%">
                     </div>
                 </form>
@@ -123,6 +217,7 @@
         </div>
     </div>
 </head>
+
 <body>
     
 </body>

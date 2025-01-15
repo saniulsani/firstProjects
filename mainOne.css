@@ -2,7 +2,7 @@
 .table{
     display: flex;
     flex: 1;
-    height: 550px;
+    height: 900px;
 }
 .one{
     border: 3px solid black;
@@ -38,15 +38,7 @@
 .second2{
     border: 3px solid black;
     flex: 1;
-    /* background-color: green; */
-    margin-bottom: 5px;
-}
-.second3{
-    /* border: 3px solid black; */
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    /* background-color: teal; */
+    background-color: slategrey;
     margin-bottom: 5px;
 }
 .second4{
@@ -54,23 +46,37 @@
     flex: 1;
     background-color:hotpink;
 }
-.second3One{
-    border: 3px solid black;
+.second3 {
+    /* Ensures all child divs inside second3 take up equal space */
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+}
+
+.second3One,
+.second3Two,
+.second3Three {
     margin-right: 5px;
-    flex: 1;
-    /* background-color: blue; */
-}
-.second3Two{
-    margin-right: 5px;
     border: 3px solid black;
-    flex: 1;
-    /* background-color: red; */
+    flex: 1; /* Each section takes equal width */
+    height: 100%; /* Make sure they take up full height of their container */
+    overflow: hidden; /* Prevent overflow if images are too large */
 }
-.second3Three{
-    border: 3px solid black;
-    flex: 1;
-    /* background-color: yellow; */
+
+.second3One img,
+.second3Two img,
+.second3Three img {
+    width: 100%; /* Make the images fill the container width */
+    height: 100%; /* Make the images fill the container height */
+    object-fit: cover; /* Scale images to cover the container area without distortion */
 }
+
+/* Optional: You can also limit the height of these sections if you need a fixed height */
+.second3One, .second3Two, .second3Three {
+    height: 200px; /* Adjust this based on the size you want */
+}
+
 .lastOne {
     margin-top: 5px;
     justify-self: center;
@@ -135,4 +141,33 @@
     margin-inline: 20%;
     /* margin-bottom: 5px; */
     /* flex: 1; */
+}
+.second1 {
+    max-height: 400px; /* Set the maximum height for the section */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    /* margin-bottom: 20px; */
+}
+
+.table-container {
+    overflow-x: auto; /* Allow horizontal scrolling if the table is too wide */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* Optional: Add padding to the entire table for better spacing */
+.table-container table {
+    padding: 0 10px;
 }
